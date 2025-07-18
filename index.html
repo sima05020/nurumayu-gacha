@@ -20,6 +20,14 @@
             text-align: center;
         }
 
+        #counter {
+            font-size: 20px;
+            margin: 20px;
+            color: #333;
+            white-space: pre-wrap;
+            text-align: center;
+        }
+
         img {
             max-width: 300px;
             margin-left: auto;
@@ -42,6 +50,7 @@
 
 <body>
 
+    <div id="counter">回した回数：0</div>
     <h1>ぬるま湯ガ湯ャ</h1>
     <div id="display">花びら大回転</div>
     <button onclick="showRandomContent()">ガチャる</button>
@@ -1395,11 +1404,14 @@
             'ゆずが現在の編成になる過程の中に、二つの立方体と松潤の時期があった',
             'ゴールデンボンバーがメジャーデビューしたばかりの頃、正体は二組のゆずなのではないかという噂が流れていた\n（現在は否定されている）'
         ];
-
+        let count = 0;
         function showRandomContent() {
             const content = contents[Math.floor(Math.random() * contents.length)];
             const display = document.getElementById("display");
+            const counter = document.getElementById("counter");
             display.innerHTML = ""; // 初期化
+            count++;
+            counter.innerHTML = "回した回数：" + count;
 
             // 画像URLを検出する正規表現
             const imageRegex = /(https?:\/\/[^\s]+?\.(?:png|jpe?g|gif|webp))/gi;
